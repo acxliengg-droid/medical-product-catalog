@@ -1,144 +1,20 @@
-:root {
-    --primary-color: #0D6EFD;
-    --background-color: #F8FAFF;
-    --text-color: #1A1A1A;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: var(--background-color);
-    color: var(--text-color);
-}
-
-/* Header */
-.header {
-    position: sticky;
-    top: 0;
-    background: white;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    z-index: 1000;
-}
-
-.header h1 {
-    margin: 0 0 10px 0;
-    font-size: 20px;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-/* Product Cards */
-.product-list {
-    padding: 10px;
-}
-
-.product-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-    transform: scale(1.02);
-}
-
-.product-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.product-info h3 {
-    margin: 0;
-    font-size: 16px;
-}
-
-.composition {
-    font-size: 13px;
-    color: #555;
-}
-
-/* Load More */
-.load-more {
-    width: 90%;
-    margin: 20px auto;
-    display: block;
-    padding: 12px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-/* Footer */
-.footer {
-    background: white;
-    padding: 15px;
+.end-text {
     text-align: center;
-    margin-top: 30px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #666;
 }
 
-/* Modal */
 .modal {
     position: fixed;
     inset: 0;
     background: white;
-    overflow-y: auto;
     transform: translateX(100%);
     transition: transform 0.3s ease;
+    overflow-y: auto;
     z-index: 2000;
 }
 
 .modal.show {
     transform: translateX(0);
-}
-
-.modal-content {
-    padding: 15px;
-}
-
-.modal-image {
-    width: 100%;
-    max-width: 350px;
-    display: block;
-    margin: 0 auto 15px;
-}
-
-.mrp {
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.order-buttons {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.order-btn {
-    text-decoration: none;
-    background: var(--primary-color);
-    color: white;
-    padding: 12px;
-    text-align: center;
-    border-radius: 8px;
-}
-
-.hidden {
-    display: none;
 }
