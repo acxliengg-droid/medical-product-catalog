@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "Paracetamol 500",
+    "composition": "Paracetamol IP 500mg",
+    "details": "Used for fever and mild pain relief. Suitable for adults and children above 12 years.",
+    "mrp": "₹50",
+    "image": "assets/images/product1.webp"
+  },
+  {
+    "id": 2,
+    "name": "Amoxicillin 250",
+    "composition": "Amoxicillin 250mg",
+    "details": "Antibiotic used for bacterial infections including throat and respiratory infections.",
+    "mrp": "₹120",
+    "image": "assets/images/product2.webp"
+  },
+  {
+    "id": 3,
+    "name": "Vitamin C Tablets",
+    "composition": "Ascorbic Acid 500mg",
+    "details": "Boosts immunity and helps in recovery from cold and flu.",
+    "image": "assets/images/product3.webp"
+  },
+  {
+    "id": 4,
+    "name": "Cough Syrup DX",
+    "composition": "Dextromethorphan + Chlorpheniramine",
+    "details": "Provides relief from dry cough and throat irritation.",
+    "mrp": "₹95",
+    "image": "assets/images/product4.webp"
+  }
+]
