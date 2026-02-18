@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Product Catalog</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1 id="companyName">Loading...</h1>
+    <input type="text" id="searchInput" placeholder="Search products...">
+</header>
+
+<main>
+    <div id="productList" class="product-list"></div>
+
+    <button id="loadMoreBtn" class="load-more">
+        Load More Products
+    </button>
+</main>
+
+<footer class="footer">
+    <h3>Address</h3>
+    <p id="footerAddress"></p>
+</footer>
+
+<!-- Full Screen Modal -->
+<div id="productModal" class="modal hidden">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button id="closeModal">← Back</button>
+        </div>
+
+        <img id="modalImage" class="modal-image" src="" alt="">
+
+        <h2 id="modalName"></h2>
+        <p id="modalComposition" class="composition"></p>
+
+        <p id="modalDetails" class="details"></p>
+
+        <p id="modalMRP" class="mrp"></p>
+
+        <div class="modal-address">
+            <strong>Address:</strong>
+            <p id="modalAddress"></p>
+        </div>
+
+        <div class="order-buttons">
+            <a id="callBtn" class="order-btn">Order By Call</a>
+            <a id="whatsappBtn" class="order-btn">Order On WhatsApp</a>
+            <a id="emailBtn" class="order-btn">Order By Email</a>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
