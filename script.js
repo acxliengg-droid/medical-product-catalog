@@ -1,4 +1,5 @@
-let products = [];
+let allProducts = [];
+let filteredProducts = [];
 let config = {};
 let currentIndex = 0;
 const batchSize = 10;
@@ -7,22 +8,32 @@ const productList = document.getElementById("productList");
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 const searchInput = document.getElementById("searchInput");
 const modal = document.getElementById("productModal");
+const endText = document.getElementById("endText");
 
 async function loadData() {
     const productRes = await fetch("data/products.json");
-    products = await productRes.json();
+    allProducts = await productRes.json();
+    filteredProducts = [...allProducts];
 
     const configRes = await fetch("data/config.json");
     config = await configRes.json();
 
-    document.getElementById("companyName").innerText = config.company_name;
-    document.getElementById("footerAddress").innerText = config.address;
+    document.getElementById("companyName").innerText = config.company_name || "My Company";
+    document.getElementById("footerAddress").innerText = config.address || "New Delhi, India";
+    document.getElementById("modalAddress").innerText = config.address || "New Delhi, India";
 
     renderProducts();
 }
 
-function renderProducts() {
-    const nextBatch = products.slice(currentIndex, currentIndex + batchSize);
+function renderProducts(reset = false) {
+
+    if (reset) {
+        productList.innerHTML = "";
+        currentIndex = 0;
+        endText.innerText = "";
+    }
+
+    const nextBatch = filteredProducts.slice(currentIndex, currentIndex + batchSize);
 
     nextBatch.forEach(product => {
         const card = document.createElement("div");
@@ -42,8 +53,12 @@ function renderProducts() {
 
     currentIndex += batchSize;
 
-    if (currentIndex >= products.length) {
+    if (currentIndex >= filteredProducts.length) {
         loadMoreBtn.style.display = "none";
+        endText.innerText = "You Have Reached The End.";
+    } else {
+        loadMoreBtn.style.display = "block";
+        endText.innerText = "";
     }
 }
 
@@ -52,7 +67,6 @@ function openModal(product) {
     document.getElementById("modalName").innerText = product.name;
     document.getElementById("modalComposition").innerText = product.composition;
     document.getElementById("modalDetails").innerText = product.details || "";
-    document.getElementById("modalAddress").innerText = config.address;
 
     if (product.mrp) {
         document.getElementById("modalMRP").innerText = "MRP: " + product.mrp;
@@ -72,20 +86,17 @@ document.getElementById("closeModal").onclick = () => {
     modal.classList.remove("show");
 };
 
-loadMoreBtn.onclick = renderProducts;
+loadMoreBtn.onclick = () => renderProducts();
 
-searchInput.addEventListener("input", function() {
+searchInput.addEventListener("input", function () {
     const value = this.value.toLowerCase();
-    productList.innerHTML = "";
-    currentIndex = 0;
 
-    const filtered = products.filter(p =>
+    filteredProducts = allProducts.filter(p =>
         p.name.toLowerCase().includes(value) ||
         p.composition.toLowerCase().includes(value)
     );
 
-    products = filtered;
-    renderProducts();
+    renderProducts(true);
 });
 
 loadData();
