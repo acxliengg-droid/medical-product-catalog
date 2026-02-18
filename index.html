@@ -9,7 +9,7 @@
 <body>
 
 <header class="header">
-    <h1 id="companyName">Loading...</h1>
+    <h1 id="companyName">My Company</h1>
     <input type="text" id="searchInput" placeholder="Search products...">
 </header>
 
@@ -19,33 +19,31 @@
     <button id="loadMoreBtn" class="load-more">
         Load More Products
     </button>
+
+    <p id="endText" class="end-text"></p>
 </main>
 
 <footer class="footer">
     <h3>Address</h3>
-    <p id="footerAddress"></p>
+    <p id="footerAddress">New Delhi, India</p>
 </footer>
 
-<!-- Full Screen Modal -->
-<div id="productModal" class="modal hidden">
+<!-- Modal -->
+<div id="productModal" class="modal">
     <div class="modal-content">
-
         <div class="modal-header">
             <button id="closeModal">← Back</button>
         </div>
 
-        <img id="modalImage" class="modal-image" src="" alt="">
-
+        <img id="modalImage" class="modal-image" src="">
         <h2 id="modalName"></h2>
         <p id="modalComposition" class="composition"></p>
-
-        <p id="modalDetails" class="details"></p>
-
+        <p id="modalDetails"></p>
         <p id="modalMRP" class="mrp"></p>
 
         <div class="modal-address">
             <strong>Address:</strong>
-            <p id="modalAddress"></p>
+            <p id="modalAddress">New Delhi, India</p>
         </div>
 
         <div class="order-buttons">
@@ -53,7 +51,6 @@
             <a id="whatsappBtn" class="order-btn">Order On WhatsApp</a>
             <a id="emailBtn" class="order-btn">Order By Email</a>
         </div>
-
     </div>
 </div>
 
